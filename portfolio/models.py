@@ -7,3 +7,6 @@ class Project(models.Model):
     core_tech = models.CharField(max_length=200, null=True, blank=True)
     supporting_tech = models.CharField(max_length=200, null=True, blank=True)
     url = models.URLField(null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.title} | {self.blurb}"
