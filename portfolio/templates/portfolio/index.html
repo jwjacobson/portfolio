@@ -5,7 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
 </head>
+<h1>Projects</h1>
 <body>
-    Hello World!
+    {% for project in projects %}
+    <div>
+        {{ project.title }}
+    </div>
+    <div>
+        {{ project.blurb }}
+    </div>
+    {{ project.description }}
+    </div>
+    <div>
+        {{ project.core_tech }}
+    </div>
+    <div></div>
+        {{ project.supporting_tech }}
+    </div>
+    <div>
+        {{ project.url }}
+    </div>
+    {% endfor %}
+
 </body>
 </html>
