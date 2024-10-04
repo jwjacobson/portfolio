@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1"]
 
+TAILWIND_APP_NAME = 'theme'
 
 # Application definition
 

@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-</head>
+{% extends "base.html" %}
+
+{% block content %}
 <h1>Projects</h1>
-<body>
     {% for project in projects %}
     <div>
         {{ project.title }}
@@ -26,6 +21,4 @@
         {{ project.url }}
     </div>
     {% endfor %}
-
-</body>
-</html>
+{% endblock %}
