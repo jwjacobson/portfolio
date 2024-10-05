@@ -1,13 +1,29 @@
 <div id="projects">
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-center mb-8">{{ project.title }}</h1>
+
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    Detailed project view!
+    <div class="bg-indigo-100 border border-teal-300 bg-indigo-100 p-6 hover:shadow-sm transition-shadow duration-300">
+            <p class="text-gray-800 mb-4">{{ project.description }}</p>
+<p class="text-sm text-gray-500 mb-2">
+                <strong>Core Tech:</strong> {{ project.core_tech }}
+            </p>
+            <p class="text-sm text-gray-500 mb-2">
+                <strong>Supporting Tech:</strong> {{ project.supporting_tech }}
+            </p>
+            <a href="{{ project.url }}" class="text-blue-500 hover:text-blue-700 font-semibold" target="_blank">
+                Visit Project
+            </a>
     <button 
         class="bg-indigo-400 hover:bg-indigo-500 text-white font-bold py-2 px-4"
         hx-get="{% url 'index' %}" 
         hx-target="#projects"
-        hx-swap="outerHTML"
+        hx-swap="innerHTML"
     >
     Back
     </button>
+
+</div>
+</div>
 </div>
 </div>
