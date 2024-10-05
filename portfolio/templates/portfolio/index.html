@@ -18,7 +18,15 @@
             </p> -->
             <!-- <a href="{{ project.url }}" class="text-blue-500 hover:text-blue-700 font-semibold" target="_blank">
                 Visit Project -->
-            </a>
+            <!-- </a> -->
+            <button 
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                hx-get="{% url 'details' project.pk %}" 
+                hx-target="#projects"
+                hx-swap="outerHTML"
+            >
+            Details
+            </button>
         </div>
         {% endfor %}
     </div>
