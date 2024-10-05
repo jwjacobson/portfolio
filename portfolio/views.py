@@ -9,3 +9,10 @@ def index(request):
         request, "portfolio/index.html",
         {"projects": projects}
         )
+
+def details(request, pk):
+    project = Project.objects.get(pk=pk)
+    return render(
+        request, "portfolio/_project.html",
+        {"project": project}
+        )
