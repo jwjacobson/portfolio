@@ -1,11 +1,12 @@
 <div id="projects">
 <div class="container mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold text-center mb-8">{{ project.title }}</h1>
+    <h1 class="text-2xl font-bold text-center">{{ project.title }}</h1>
+    <h5 class="text-xl font-bold text-center mb-8"><em>{{ project.blurb }}</em></h5>
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <div class="bg-indigo-100 border border-teal-300 bg-indigo-100 p-6 hover:shadow-sm transition-shadow duration-300">
+    <div class="bg-indigo-100 border border-indigo-400 p-6 hover:shadow-sm transition-shadow duration-300">
             <p class="text-gray-800 mb-4">{{ project.description }}</p>
-<p class="text-sm text-gray-500 mb-2">
+            <p class="text-sm text-gray-500 mb-2">
                 <strong>Core Tech:</strong> {{ project.core_tech }}
             </p>
             <p class="text-sm text-gray-500 mb-2">
