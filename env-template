@@ -1,0 +1,4 @@
+DEBUG=True
+ALLOWED_HOSTS=127.0.0.1
+SECRET_KEY=thenitwouldn'tbesecret
+TAILWIND_APP_NAME=theme
