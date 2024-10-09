@@ -27,6 +27,8 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", default=False)
 ALLOWED_HOSTS = [os.getenv("ALLOWED_HOSTS")]
 TAILWIND_APP_NAME = os.getenv("TAILWIND_APP_NAME")
+MEDIA_URL = os.getenv('MEDIA_URL')
+MEDIA_ROOT = os.getenv('MEDIA_ROOT')
 
 # Application definition
 
