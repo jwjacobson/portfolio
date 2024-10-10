@@ -12,6 +12,8 @@ django==5.1.1
     #   django-tailwind
 django-tailwind==3.8.0
     # via -r requirements.in
+pillow==10.4.0
+    # via -r requirements.in
 python-dotenv==1.0.1
     # via -r requirements.in
 sqlparse==0.5.1
