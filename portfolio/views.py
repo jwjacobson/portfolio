@@ -13,6 +13,6 @@ def index(request):
 def details(request, pk):
     project = Project.objects.get(pk=pk)
     return render(
-        request, "portfolio/_project.html",
+        request, "portfolio/_details.html",
         {"project": project}
         )
