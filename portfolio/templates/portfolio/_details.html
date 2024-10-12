@@ -1,11 +1,9 @@
 <div id="projects">
-  <div>
-    <h1 class="text-2xl font-bold text-center">{{ project.title }}</h1>
-    <h2 class="text-xl font-bold text-center mb-8"><em>{{ project.blurb }}</em></h2>
-  </div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     <div class="col-start-1 col-end-2 md:col-start-2 md:col-end-3 lg:col-start-2 lg:col-end-3">
       <div class="bg-indigo-100 border border-indigo-400 p-6 hover:shadow-sm">
+        <h1 class="text-2xl font-bold text-center">{{ project.title }}</h1>
+        <h2 class="text-xl font-bold text-center mb-8"><em>{{ project.blurb }}</em></h2>
         <img src="{{ project.screenshot.url }}" alt="Screenshot of {{ project.title }}">
         <p class="text-gray-800 text-sm mb-4">{{ project.description }}</p>
         <p class="text-sm text-gray-500 mb-2">
