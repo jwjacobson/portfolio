@@ -2,22 +2,6 @@
 
 {% block content %}
 <div id="projects">
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {% for project in projects %}
-        <div class="bg-indigo-100 border border-indigo-400 p-6 hover:shadow-sm">
-            <h2 class="text-xl font-semibold mb-4">{{ project.title }}</h2>
-            <p class="text-gray-600 mb-2 italic">{{ project.blurb }}</p>
-            <button 
-                class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4"
-                hx-get="{% url 'details' project.pk %}" 
-                hx-target="#projects"
-                hx-swap="outerHTML"
-            >
-            Details
-            </button>
-        </div>
-        {% endfor %}
-    </div>
+    {% include "portfolio/_projects.html" %}
 </div>
 {% endblock %}
