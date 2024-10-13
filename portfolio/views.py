@@ -19,3 +19,6 @@ def details(request, pk):
         request, "portfolio/_details.html",
         {"project": project}
         )
+
+def about(request):
+    return render(request, "portfolio/_about.html")
