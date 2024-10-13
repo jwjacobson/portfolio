@@ -21,7 +21,8 @@
 				<div 
 					hx-get="/" 
 					hx-target="#tab-content" 
-					hx-swap="innerHTML" 
+					hx-swap="innerHTML"
+					hx-trigger="click"
 					class="flex-1 text-center flex items-center justify-center cursor-pointer hover:bg-indigo-100 p-2"
 				>
 					<span class="text-black">Projects</span>
@@ -32,14 +33,15 @@
 				<div 
 					hx-get="{% url 'about' %}" 
 					hx-target="#tab-content" 
-					hx-swap="innerHTML" 
+					hx-swap="innerHTML"
+					hx-trigger="click"
 					class="flex-1 text-center flex items-center justify-center cursor-pointer hover:bg-indigo-100 p-2"
 				>
 					<span class="text-black">About</span>
 				</div>
 			</nav>
 		
-			<div id="tab-content" class="flex-1" hx-get="/" hx-swap="innerHTML">
+			<div id="tab-content" class="flex-1" hx-get="/" hx-swap="innerHTML" hx-trigger="load">
 				{% block content %}
 				{% endblock %}
 			</div>
@@ -55,4 +57,9 @@
 			</p>
 		</footer>
 	</body>
+		<script>
+    document.body.addEventListener('htmx:afterRequest', function (event) {
+        console.log('HTMX request completed:', event);
+    });
+</script>
 </html>
