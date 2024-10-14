@@ -17,27 +17,27 @@
 
 	<body class="bg-indigo-200 font-serif leading-normal tracking-normal min-h-screen flex flex-col">
 		<div class="flex-1 container mx-auto px-4 py-8">
-			<nav class="bg-indigo-200 border border-indigo-400 p-0 inline-flex overflow-hidden mb-3">
+			<nav class="bg-indigo-200 border border-indigo-700 p-0 inline-flex overflow-hidden mb-3">
 				<div 
 					hx-get="/" 
 					hx-target="#tab-content" 
 					hx-swap="innerHTML"
 					hx-trigger="click"
-					class="flex-1 text-center flex items-center justify-center cursor-pointer hover:bg-indigo-100 p-2"
+					class="flex-1 text-center text-indigo-900 flex items-center justify-center cursor-pointer hover:bg-indigo-100 hover:text-black p-2"
 				>
-					<span class="text-black">Projects</span>
+					<span>Projects</span>
 				</div>
 			
-				<div class="w-px bg-indigo-400"></div>
+				<div class="w-px bg-indigo-700"></div>
 			
 				<div 
 					hx-get="{% url 'about' %}" 
 					hx-target="#tab-content" 
 					hx-swap="innerHTML"
 					hx-trigger="click"
-					class="flex-1 text-center flex items-center justify-center cursor-pointer hover:bg-indigo-100 p-2"
+					class="flex-1 text-center text-indigo-900 items-center justify-center cursor-pointer hover:bg-indigo-100 hover:text-black p-2"
 				>
-					<span class="text-black">About</span>
+					<span>About</span>
 				</div>
 			</nav>
 		
