@@ -1,10 +1,10 @@
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
     {% for project in projects %}
-    <div class="bg-indigo-100 border border-indigo-400 p-6 hover:shadow-sm">
-        <h2 class="text-xl font-semibold mb-1">{{ project.title }}</h2>
-        <p class="text-gray-800 mb-2 italic">{{ project.blurb }}</p>
+    <div class="bg-indigo-100 border border-indigo-400 p-8 hover:shadow-sm">
+        <h1 class="text-2xl font-semibold mb-1">{{ project.title }}</h1>
+        <p class="text-lg text-gray-800 mb-2 italic">{{ project.blurb }}</p>
         <button 
-            class="bg-indigo-500 hover:bg-indigo-600 text-indigo-50 font-bold py-2 px-4"
+            class="bg-indigo-500 hover:bg-indigo-600 text-indigo-50 font-bold py-3 px-6 text-lg"
             hx-get="{% url 'details' project.pk %}" 
             hx-target="#tab-content"
             hx-swap="innerHTML"
