@@ -2,3 +2,7 @@ Django
 django-tailwind
 python-dotenv
 pillow
+gunicorn
+whitenoise
+psycopg2-binary
+dj-database-url
