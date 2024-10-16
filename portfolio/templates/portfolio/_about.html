@@ -1,10 +1,11 @@
+{% load static %}
 <div class="bg-indigo-100 border border-indigo-400 py-16">
   <div class="max-w-4xl mx-auto bg-indigo-50  border border-indigo-500 shadow-lg overflow-hidden p-12">
       <div class="flex flex-col lg:flex-row items-center">
 
         <div flex-shrink-0>
             <div class="w-48 h-48 lg:w-72 lg:h-72 overflow-hidden shadow-md border border-indigo-600">
-            <img src="{{ MEDIA_URL }}profile/profile2_small.jpg" alt="A picture of me and Toby" class="w-full h-full object-cover">
+            <img src="{% static 'images/profile2_small.jpg' %}" alt="A picture of me and Toby" class="w-full h-full object-cover">
             </div>
         </div>
 
