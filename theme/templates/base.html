@@ -7,11 +7,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		{% tailwind_css %}
+		<!-- Load htmx -->
         <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+		<!-- favicons -->
 		<link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
 		<link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
 		<link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
 		<link rel="manifest" href="{% static 'images/site.webmanifest' %}">
+		<!-- Preload images -->
+		<link rel="preload" href="{% static 'images/jazztunes.png' %}" as="image">
+		<link rel="preload" href="{% static 'images/summarize.png' %}" as="image">
+		<link rel="preload" href="{% static 'images/gfetch.png' %}" as="image">
+		<link rel="preload" href="{% static 'images/profile/profile2_small.jpg' %}" as="image">
 		<style>
 			html {
 				overflow-y: scroll;
