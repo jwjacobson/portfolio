@@ -4,3 +4,5 @@ python-dotenv
 gunicorn
 whitenoise
 psycopg2-binary
+django-storages
+boto3
