@@ -47,6 +47,13 @@ ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 ALLOWED_HOSTS = [host.strip() for host in ALLOWED_HOSTS if host.strip()]
 TAILWIND_APP_NAME = os.getenv("TAILWIND_APP_NAME")
 
+#AWS config
+AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY")
+AWS_SECRET_KEY = os.getenv("AWS_SECRET_KEY")
+AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
+AWS_S3_REGION_NAME = os.getenv("AWS_S3_REGION_NAME") 
+AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKENT_NAME}.s3.amazonaws.com"
+
 # Application definition
 
 INSTALLED_APPS = [
