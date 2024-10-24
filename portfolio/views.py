@@ -43,3 +43,4 @@ def about(request):
     return render(request, "portfolio/_about.html",
         {"MEDIA_URL": settings.MEDIA_URL} 
         )
+

@@ -24,4 +24,5 @@ urlpatterns = [
     path("", views.index, name="index"),
     path('<int:pk>/', views.details, name="details"),
     path('about/', views.about, name='about'),
+    
 ]
