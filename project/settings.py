@@ -34,19 +34,10 @@ from pathlib import Path
 import logging
 import boto3
 
-
-
 load_dotenv()
-
-
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", default=False)
@@ -55,8 +46,8 @@ ALLOWED_HOSTS = [host.strip() for host in ALLOWED_HOSTS if host.strip()]
 TAILWIND_APP_NAME = os.getenv("TAILWIND_APP_NAME")
 
 # AWS config
+# Idea for USE_S3 from https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/
 USE_S3 = os.getenv("USE_S3")
-
 if USE_S3:
     AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
     AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
@@ -71,6 +62,11 @@ if USE_S3:
             },
         },
     }
+
+else:
+    STATIC_URL = "/static/"
+    STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"  
+
 
 # Application definition
 
@@ -161,11 +157,8 @@ USE_TZ = True
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'theme/static'),
 ]
-
-
-
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
