@@ -1,7 +1,0 @@
-Django
-django-tailwind
-python-dotenv
-gunicorn
-psycopg2-binary
-django-storages
-boto3
