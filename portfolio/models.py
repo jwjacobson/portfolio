@@ -16,10 +16,6 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 from django.db import models
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
 
 class Project(models.Model):
     title = models.CharField(max_length=50)

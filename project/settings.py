@@ -28,31 +28,29 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 import os
-
-from dotenv import load_dotenv
 from pathlib import Path
 import logging
-import boto3
 
-load_dotenv()
+import boto3
+from decouple import config, Csv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv("SECRET_KEY")
-DEBUG = os.getenv("DEBUG", default=False)
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
-ALLOWED_HOSTS = [host.strip() for host in ALLOWED_HOSTS if host.strip()]
-TAILWIND_APP_NAME = os.getenv("TAILWIND_APP_NAME")
+SECRET_KEY = config("SECRET_KEY")
+DEBUG = config("DEBUG", default=False)
+ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="", cast=Csv())
+TAILWIND_APP_NAME = config("TAILWIND_APP_NAME")
 
 # AWS config
 # Idea for USE_S3 from https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/
-USE_S3 = os.getenv("USE_S3")
+USE_S3 = config("USE_S3")
 if USE_S3:
-    AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
-    AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
-    AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
-    AWS_S3_REGION_NAME = os.getenv("AWS_S3_REGION_NAME") 
+    AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_ACCESS_KEY")
+    AWS_STORAGE_BUCKET_NAME = config("AWS_STORAGE_BUCKET_NAME")
+    AWS_S3_REGION_NAME = config("AWS_S3_REGION_NAME") 
     AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
     STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
     STORAGES = {
@@ -94,7 +92,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
