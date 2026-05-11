@@ -37,27 +37,27 @@
 		</style>
 	</head>
 
-	<body class="bg-[#F7F6F2] font-serif leading-normal tracking-normal min-h-screen flex flex-col">
+	<body class="bg-stone-50 font-serif leading-normal tracking-normal min-h-screen flex flex-col">
 		<div class="flex-1 container mx-auto px-4 py-8">
-			<nav class="bg-[#F7F6F2] border border-[#1E1E1E] p-0 inline-flex overflow-hidden mb-3">
+			<nav class="bg-stone-50 border border-neutral-900 p-0 inline-flex overflow-hidden mb-3">
 				<div
 					hx-get="/"
 					hx-target="#tab-content"
 					hx-swap="innerHTML"
 					hx-trigger="click"
-					class="flex-1 text-center text-[#1E1E1E] flex items-center justify-center cursor-pointer hover:bg-[#ECEAE2] p-4 text-xl"
+					class="flex-1 text-center text-neutral-900 flex items-center justify-center cursor-pointer hover:bg-stone-200 p-4 text-xl"
 				>
 					<span>Projects</span>
 				</div>
 
-				<div class="w-px bg-[#1E1E1E]"></div>
+				<div class="w-px bg-neutral-900"></div>
 
 				<div
 					hx-get="{% url 'about' %}"
 					hx-target="#tab-content"
 					hx-swap="innerHTML"
 					hx-trigger="click"
-					class="flex-1 text-center text-[#1E1E1E] items-center justify-center cursor-pointer hover:bg-[#ECEAE2] p-4 text-xl"
+					class="flex-1 text-center text-neutral-900 items-center justify-center cursor-pointer hover:bg-stone-200 p-4 text-xl"
 				>
 					<span>About</span>
 				</div>
@@ -70,21 +70,21 @@
 		</div>
 
 		<footer class="p-4 ml-8">
-			<p class="text-xs text-[#888880]">
+			<p class="text-xs text-stone-400">
 				© 2025 Jeff Jacobson
 			</p>
-			<p class="text-xs text-[#888880]">
+			<p class="text-xs text-stone-400">
 				<a href="https://github.com/jwjacobson/portfolio/blob/main/LICENSE"
-				class="text-[#4A6B40]" target="_blank" rel="noopener noreferrer">
+				class="text-green-800" target="_blank" rel="noopener noreferrer">
 				License
 				</a>
 				|<a
 				href="https://github.com/jwjacobson/portfolio"
-				class="text-[#4A6B40]" target="_blank" rel="noopener noreferrer">
+				class="text-green-800" target="_blank" rel="noopener noreferrer">
 				Source code
 				</a>
 			</p>
-			<p class="text-xs text-[#888880]">
+			<p class="text-xs text-stone-400">
 				Django | htmx | Tailwind CSS
 			</p>
 		</footer>
