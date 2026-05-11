@@ -24,10 +24,10 @@
 		<link rel="manifest" href="{% static 'images/site.webmanifest' %}">
 		<!-- Preload images -->
 		<link rel="preload" href="{% static 'images/jazztunes.png' %}" as="image">
-		<link rel="preload" href="{% static 'images/summarize.png' %}" as="image">
+		<link rel="preload" href="{% static 'images/bellona.png' %}" as="image">
 		<link rel="preload" href="{% static 'images/gfetch-site.png' %}" as="image">
-		<link rel="preload" href="{% static 'images/privatefacts.png' %}" as="image">
-		<link rel="preload" href="{% static 'images/tahoe-lafs.png' %}" as="image">
+		<link rel="preload" href="{% static 'images/gridlington.png' %}" as="image">
+		<link rel="preload" href="{% static 'images/jobsearch.png' %}" as="image">
 		<link rel="preload" href="{% static 'images/portfolio.png' %}" as="image">
 		<link rel="preload" href="{% static 'images/with-diogenes.jpg' %}" as="image">
 		<style>
@@ -37,55 +37,55 @@
 		</style>
 	</head>
 
-	<body class="bg-indigo-200 font-serif leading-normal tracking-normal min-h-screen flex flex-col">
+	<body class="bg-[#F7F6F2] font-serif leading-normal tracking-normal min-h-screen flex flex-col">
 		<div class="flex-1 container mx-auto px-4 py-8">
-			<nav class="bg-indigo-200 border border-indigo-700 p-0 inline-flex overflow-hidden mb-3">
-				<div 
-					hx-get="/" 
-					hx-target="#tab-content" 
+			<nav class="bg-[#F7F6F2] border border-[#1E1E1E] p-0 inline-flex overflow-hidden mb-3">
+				<div
+					hx-get="/"
+					hx-target="#tab-content"
 					hx-swap="innerHTML"
 					hx-trigger="click"
-					class="flex-1 text-center text-indigo-900 flex items-center justify-center cursor-pointer hover:bg-indigo-100 hover:text-black p-4 text-xl"
+					class="flex-1 text-center text-[#1E1E1E] flex items-center justify-center cursor-pointer hover:bg-[#ECEAE2] p-4 text-xl"
 				>
 					<span>Projects</span>
 				</div>
-			
-				<div class="w-px bg-indigo-700"></div>
-			
-				<div 
-					hx-get="{% url 'about' %}" 
-					hx-target="#tab-content" 
+
+				<div class="w-px bg-[#1E1E1E]"></div>
+
+				<div
+					hx-get="{% url 'about' %}"
+					hx-target="#tab-content"
 					hx-swap="innerHTML"
 					hx-trigger="click"
-					class="flex-1 text-center text-indigo-900 items-center justify-center cursor-pointer hover:bg-indigo-100 hover:text-black p-4 text-xl"
+					class="flex-1 text-center text-[#1E1E1E] items-center justify-center cursor-pointer hover:bg-[#ECEAE2] p-4 text-xl"
 				>
 					<span>About</span>
 				</div>
 			</nav>
-		
+
 			<div id="tab-content" class="flex-1 mt-3" hx-get="/" hx-swap="innerHTML" hx-trigger="load">
 				{% block content %}
 				{% endblock %}
 			</div>
 		</div>
-		
+
 		<footer class="p-4 ml-8">
-			<p class="text-xs text-gray-600">
+			<p class="text-xs text-[#888880]">
 				© 2025 Jeff Jacobson
 			</p>
-			<p class="text-xs text-gray-600">
-				<a href="https://github.com/jwjacobson/portfolio/blob/main/LICENSE" 
-				class="text-indigo-500" target="_blank" rel="noopener noreferrer">
+			<p class="text-xs text-[#888880]">
+				<a href="https://github.com/jwjacobson/portfolio/blob/main/LICENSE"
+				class="text-[#4A6B40]" target="_blank" rel="noopener noreferrer">
 				License
 				</a>
 				|<a
-				href="https://github.com/jwjacobson/portfolio" 
-				class="text-indigo-500" target="_blank" rel="noopener noreferrer">
-				Source code 
+				href="https://github.com/jwjacobson/portfolio"
+				class="text-[#4A6B40]" target="_blank" rel="noopener noreferrer">
+				Source code
 				</a>
 			</p>
-			<p class="text-xs text-gray-600">
-				Django | htmx | Tailwind CSS 
+			<p class="text-xs text-[#888880]">
+				Django | htmx | Tailwind CSS
 			</p>
 		</footer>
 	</body>
