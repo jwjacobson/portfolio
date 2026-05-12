@@ -8,6 +8,7 @@
             hx-get="{% url 'details' project.pk %}"
             hx-target="#tab-content"
             hx-swap="innerHTML"
+            hx-push-url="{% url 'details' project.pk %}"
         >
         Details
         </button>

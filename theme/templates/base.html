@@ -45,6 +45,7 @@
 					hx-target="#tab-content"
 					hx-swap="innerHTML"
 					hx-trigger="click"
+					hx-push-url="/"
 					class="flex-1 text-center text-stone-900 flex items-center justify-center cursor-pointer hover:bg-orange-50 p-4 text-xl"
 				>
 					<span>Projects</span>
@@ -57,13 +58,14 @@
 					hx-target="#tab-content"
 					hx-swap="innerHTML"
 					hx-trigger="click"
+					hx-push-url="{% url 'about' %}"
 					class="flex-1 text-center text-stone-900 items-center justify-center cursor-pointer hover:bg-orange-50 p-4 text-xl"
 				>
 					<span>About</span>
 				</div>
 			</nav>
 
-			<div id="tab-content" class="flex-1 mt-3" hx-get="/" hx-swap="innerHTML" hx-trigger="load">
+			<div id="tab-content" class="flex-1 mt-3">
 				{% block content %}
 				{% endblock %}
 			</div>
@@ -71,7 +73,7 @@
 
 		<footer class="p-4 ml-8">
 			<p class="text-xs text-stone-100">
-				© 2025 Jeff Jacobson
+				© 2026 Jeff Jacobson
 			</p>
 			<p class="text-xs text-stone-100">
 				<a href="https://github.com/jwjacobson/portfolio/blob/main/LICENSE"

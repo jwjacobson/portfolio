@@ -2,6 +2,12 @@
 
 {% block content %}
 <div id="tab-content">
-    {% include "portfolio/_projects.html" %}
+    {% if show_about %}
+        {% include "portfolio/_about.html" %}
+    {% elif selected_project %}
+        {% include "portfolio/_details.html" with project=selected_project %}
+    {% else %}
+        {% include "portfolio/_projects.html" %}
+    {% endif %}
 </div>
 {% endblock %}

@@ -24,7 +24,7 @@ from portfolio.models import Project
 def index(request):
     projects = Project.objects.all()
 
-    if request.headers.get('HX-Request'):  
+    if request.headers.get('HX-Request'):
         return render(request, 'portfolio/_projects.html', {'projects': projects})
 
     return render(
@@ -34,13 +34,21 @@ def index(request):
 
 def details(request, pk):
     project = Project.objects.get(pk=pk)
+
+    if request.headers.get('HX-Request'):
+        return render(request, 'portfolio/_details.html', {'project': project})
+
     return render(
-        request, "portfolio/_details.html",
-        {"project": project}
+        request, "portfolio/index.html",
+        {"projects": Project.objects.all(), "selected_project": project}
         )
 
 def about(request):
-    return render(request, "portfolio/_about.html",
-        {"MEDIA_URL": settings.MEDIA_URL} 
-        )
+    if request.headers.get('HX-Request'):
+        return render(request, 'portfolio/_about.html',
+            {"MEDIA_URL": settings.MEDIA_URL})
 
+    return render(
+        request, "portfolio/index.html",
+        {"projects": Project.objects.all(), "show_about": True}
+        )
