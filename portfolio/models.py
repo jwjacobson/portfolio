@@ -25,6 +25,9 @@ class Project(models.Model):
     supporting_tech = models.CharField(max_length=200, null=True, blank=True)
     url = models.URLField(null=True, blank=True)
     screenshot = models.CharField(max_length=100, null=True, blank=True)
-
+    
+    class Meta:
+            ordering = ['order']
+    
     def __str__(self):
         return f"{self.title} | {self.blurb}"
