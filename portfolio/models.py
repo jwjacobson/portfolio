@@ -18,6 +18,7 @@
 from django.db import models
 
 class Project(models.Model):
+    order = models.IntegerField(default=0)
     title = models.CharField(max_length=50)
     blurb = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(default="Description goes here")
