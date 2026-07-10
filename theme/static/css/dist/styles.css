@@ -1335,6 +1335,11 @@ select {
   color: rgb(162 28 175 / var(--tw-text-opacity));
 }
 
+.text-fuchsia-800 {
+  --tw-text-opacity: 1;
+  color: rgb(134 25 143 / var(--tw-text-opacity));
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -1390,6 +1395,11 @@ select {
 .hover\:text-fuchsia-800:hover {
   --tw-text-opacity: 1;
   color: rgb(134 25 143 / var(--tw-text-opacity));
+}
+
+.hover\:text-fuchsia-900:hover {
+  --tw-text-opacity: 1;
+  color: rgb(112 26 117 / var(--tw-text-opacity));
 }
 
 @media (min-width: 768px) {
