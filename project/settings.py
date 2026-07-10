@@ -50,7 +50,14 @@ if USE_S3:
     AWS_S3_REGION_NAME = config("AWS_S3_REGION_NAME") 
     AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
     STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
+    MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
     STORAGES = {
+        "default": {
+            "BACKEND": "storages.backends.s3.S3Storage",
+            "OPTIONS": {
+                "location": "media",
+            },
+        },
         "staticfiles": {
             "BACKEND": "storages.backends.s3.S3Storage",
             "OPTIONS": {
@@ -60,7 +67,8 @@ if USE_S3:
 
 else:
     STATIC_URL = "/static/"
-    STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"  
+    STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+    MEDIA_URL = "/media/"
 
 
 # Application definition
@@ -78,7 +86,8 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     #project
-    'portfolio.apps.PortfolioConfig'
+    'portfolio.apps.PortfolioConfig',
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
@@ -152,6 +161,10 @@ STATICFILES_DIRS = [
     BASE_DIR / 'theme' / 'static',
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Media files (admin uploads, e.g. blog images)
+# MEDIA_URL is defined above per-environment (S3 when USE_S3, local otherwise).
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

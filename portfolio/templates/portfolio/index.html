@@ -6,8 +6,12 @@
         {% include "portfolio/_about.html" %}
     {% elif selected_project %}
         {% include "portfolio/_details.html" with project=selected_project %}
-    {% else %}
+    {% elif show_projects %}
         {% include "portfolio/_projects.html" %}
+    {% elif selected_post %}
+        {% include "blog/_post.html" with post=selected_post %}
+    {% else %}
+        {% include "blog/_blog.html" %}
     {% endif %}
 </div>
 {% endblock %}

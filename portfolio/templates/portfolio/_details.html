@@ -32,10 +32,10 @@
         {% endif %}
         <button
           class="bg-transparent hover:bg-fuchsia-700 text-lg hover:text-stone-100 text-stone-700 border border-stone-700 hover:border-orange-50 font-bold py-3 px-6"
-          hx-get="{% url 'index' %}"
+          hx-get="{% url 'projects' %}"
           hx-target="#tab-content"
           hx-swap="innerHTML"
-          hx-push-url="/"
+          hx-push-url="{% url 'projects' %}"
         >
           Back
         </button>
