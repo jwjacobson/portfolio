@@ -19,7 +19,7 @@ from django.urls import path
 from portfolio import views
 
 urlpatterns = [
-    path("projects/", views.index, name="index"),
+    path("projects/", views.index, name="projects"),
     path('projects/<int:pk>/', views.details, name="details"),
     path('about/', views.about, name='about'),
 

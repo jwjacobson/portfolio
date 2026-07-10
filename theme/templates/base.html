@@ -57,6 +57,7 @@
 		<div class="flex-1 container mx-auto px-4 py-8">
 			<nav class="bg-fuchsia-50 border border-stone-400 p-0 inline-flex overflow-hidden mb-3">
 				<div
+					data-tab="blog"
 					hx-get="{% url 'blog' %}"
 					hx-target="#tab-content"
 					hx-swap="innerHTML"
@@ -70,11 +71,12 @@
 				<div class="w-px bg-stone-400"></div>
 
 				<div
-					hx-get="{% url 'index' %}"
+					data-tab="projects"
+					hx-get="{% url 'projects' %}"
 					hx-target="#tab-content"
 					hx-swap="innerHTML"
 					hx-trigger="click"
-					hx-push-url="{% url 'index' %}"
+					hx-push-url="{% url 'projects' %}"
 					class="flex-1 text-center text-stone-900 flex items-center justify-center cursor-pointer hover:bg-amber-100 p-4 text-xl"
 				>
 					<span>Projects</span>
@@ -83,6 +85,7 @@
 				<div class="w-px bg-stone-400"></div>
 
 				<div
+					data-tab="about"
 					hx-get="{% url 'about' %}"
 					hx-target="#tab-content"
 					hx-swap="innerHTML"
@@ -119,5 +122,21 @@
 				Django | htmx | Tailwind
 			</p>
 		</footer>
+	<script>
+  function setActiveTab() {
+    const path = window.location.pathname;
+    document.querySelectorAll("[data-tab]").forEach(tab => {
+      const section = tab.dataset.tab;
+      const active =
+        section === "blog"     ? (path === "/" || path.startsWith("/blog")) :
+        section === "projects" ? path.startsWith("/projects") :
+                                 path.startsWith("/about");
+      tab.classList.toggle("bg-amber-100", active);
+    });
+  }
+  document.addEventListener("DOMContentLoaded", setActiveTab);
+  window.addEventListener("popstate", setActiveTab);
+  document.body.addEventListener("htmx:pushedIntoHistory", setActiveTab);
+</script>
 	</body>
 </html>
