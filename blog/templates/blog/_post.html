@@ -26,9 +26,18 @@
         >
         {% endif %}
 
-        <div class="markdown-body max-w-prose text-stone-700 text-lg leading-relaxed">
+        <div class="post-body">
             {{ post.body|markdown }}
         </div>
+
+        {% if post.original_url %}
+        <p class="mt-6">
+            <a href="{{ post.original_url }}" target="_blank" rel="noopener noreferrer"
+            class="text-fuchsia-700 hover:text-fuchsia-800 underline">
+                Engage with this post ↗
+            </a>
+        </p>
+        {% endif %}
 
         <div class="mt-8">
             <button

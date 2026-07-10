@@ -39,6 +39,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     body = models.TextField()
+    original_url = models.URLField(max_length=500, null=True, blank=True)
     image = models.ImageField(upload_to='blog/', null=True, blank=True)
     image_alt = models.CharField(max_length=200, blank=True)
     tags = models.ManyToManyField(Tag, blank=True)
