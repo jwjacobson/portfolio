@@ -29,7 +29,7 @@ def index(request):
 
     return render(
         request, "portfolio/index.html",
-        {"projects": projects}
+        {"projects": projects, "show_projects": True}
         )
 
 def details(request, pk):

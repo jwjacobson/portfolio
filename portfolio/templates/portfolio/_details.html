@@ -35,7 +35,7 @@
           hx-get="{% url 'index' %}"
           hx-target="#tab-content"
           hx-swap="innerHTML"
-          hx-push-url="/"
+          hx-push-url="{% url 'index' %}"
         >
           Back
         </button>
