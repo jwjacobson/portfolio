@@ -30,6 +30,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 
 from decouple import config, Csv
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,9 +41,21 @@ DEBUG = config("DEBUG", default=False)
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="", cast=Csv())
 TAILWIND_APP_NAME = config("TAILWIND_APP_NAME")
 
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+CSRF_TRUSTED_ORIGINS = config("CSRF_TRUSTED_ORIGINS", default="", cast=Csv())
+
 # AWS config
 # Idea for USE_S3 from https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/
-USE_S3 = config("USE_S3")
+USE_S3 = config("USE_S3", default=False, cast=bool)
+
+STATIC_URL = "/static/"
+
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
 if USE_S3:
     AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
     AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_ACCESS_KEY")
@@ -58,17 +71,13 @@ if USE_S3:
                 "location": "media",
             },
         },
-        "staticfiles": {
-            "BACKEND": "storages.backends.s3.S3Storage",
-            "OPTIONS": {
-            },
-        },
     }
 
 else:
-    STATIC_URL = "/static/"
-    STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
     MEDIA_URL = "/media/"
+    STORAGES["default"] = {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    }
 
 
 # Application definition
@@ -92,6 +101,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -125,10 +135,9 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    "default": dj_database_url.config(
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+    )
 }
 
 
