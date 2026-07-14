@@ -41,7 +41,8 @@ DEBUG = config("DEBUG", default=False)
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="", cast=Csv())
 TAILWIND_APP_NAME = config("TAILWIND_APP_NAME")
 
-
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+CSRF_TRUSTED_ORIGINS = config("CSRF_TRUSTED_ORIGINS", default="", cast=Csv())
 
 # AWS config
 # Idea for USE_S3 from https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/
