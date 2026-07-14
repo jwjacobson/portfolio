@@ -45,7 +45,16 @@ TAILWIND_APP_NAME = config("TAILWIND_APP_NAME")
 
 # AWS config
 # Idea for USE_S3 from https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/
-USE_S3 = config("USE_S3")
+USE_S3 = config("USE_S3", default=False, cast=bool)
+
+STATIC_URL = "/static/"
+
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
 if USE_S3:
     AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
     AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_ACCESS_KEY")
@@ -61,17 +70,13 @@ if USE_S3:
                 "location": "media",
             },
         },
-        "staticfiles": {
-            "BACKEND": "storages.backends.s3.S3Storage",
-            "OPTIONS": {
-            },
-        },
     }
 
 else:
-    STATIC_URL = "/static/"
-    STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
     MEDIA_URL = "/media/"
+    STORAGES["default"] = {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    }
 
 
 # Application definition
@@ -95,6 +100,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
