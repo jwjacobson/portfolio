@@ -43,7 +43,13 @@ module.exports = {
         // '../../**/*.py'
     ],
     theme: {
-        extend: {},
+    extend: {
+        fontFamily: {
+        display: ['EB Garamond', 'Garamond', 'Georgia', 'serif'],
+        serif: ['"Spectral"', 'Georgia', 'serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        },
+    },
     },
     plugins: [
         /**

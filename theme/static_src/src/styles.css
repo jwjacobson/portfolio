@@ -13,3 +13,43 @@
   .post-body blockquote { border-left: 3px solid rgb(168 162 158); padding-left: 1rem; font-style: italic; margin-bottom: 1rem; } /* stone-400 */
   .post-body pre { background: rgb(245 245 244); padding: 1rem; overflow-x: auto; margin-bottom: 1rem; } /* stone-100 */
 }
+
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/static/fonts/eb-garamond-v33-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/static/fonts/eb-garamond-v33-latin-600.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/static/fonts/eb-garamond-v33-latin-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Spectral';
+  src: url('/static/fonts/spectral-v15-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spectral';
+  src: url('/static/fonts/spectral-v15-latin-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spectral';
+  src: url('/static/fonts/spectral-v15-latin-600.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
